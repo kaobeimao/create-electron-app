@@ -1,0 +1,50 @@
+{
+    "name": "my-electron-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "pack": " electron-builder --dir ",
+        "dist": " electron-builder --win --x64"
+    },
+    "build": {
+        "productName": "DMS",
+        "appId": "com.electron.dms.1.0.0",
+        "asar": false,
+        "mac": {
+            "icon": "icons/dms.icns",
+            "target": "default"
+        },
+        "win": {
+            "icon": "build/icons/aims.ico",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "ia32"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowElevation": true,
+            "allowToChangeInstallationDirectory": true,
+            "installerIcon": "./app/favicon.ico",
+            "uninstallerIcon": "./app/favicon.ico",
+            "installerHeaderIcon": "./app/favicon.ico",
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "shortcutName": "xxxx",
+            "include": "build/script/installer.nsh"
+        }
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^11.1.1",
+        "electron-builder": "^22.9.1"
+    }
+}
